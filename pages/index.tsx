@@ -1,4 +1,7 @@
-import React from "react";
-export default function Home() {
-  return <div>Home</div>;
+import { NextPage } from "next"
+
+const Page: NextPage = () => {
+  return <p>hello world</p>
 }
+
+export default Page
