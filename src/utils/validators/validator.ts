@@ -11,7 +11,8 @@ export const validateInput = (value: validatorInputTypes, options: validatorOpti
         onlyLetters = false,
         onlyLettersAndNumbers = false,
         onlyLettersAndNumbersAndSpaces = false,
-        onlyLettersAndNumbersAndSpecialCharacters = false
+        onlyLettersAndNumbersAndSpecialCharacters = false,
+        onlyLettersAndSpaces = false
     } = options;
 
     // Check for required fields
@@ -60,8 +61,13 @@ export const validateInput = (value: validatorInputTypes, options: validatorOpti
     }
 
     // Check for only letters, numbers, and special characters
-    if (onlyLettersAndNumbersAndSpecialCharacters && !/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/.test(value)) {
+    if (onlyLettersAndNumbersAndSpecialCharacters && !RegExp(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/).test(value)) {
         return "This field must contain only letters, numbers, and special characters.";
+    }
+
+    // Check for only letters and spaces
+    if (onlyLettersAndSpaces && !/^[a-zA-Z ]+$/.test(value)) {
+        return "This field must contain only letters and spaces.";
     }
 
     // If no errors are found, return true

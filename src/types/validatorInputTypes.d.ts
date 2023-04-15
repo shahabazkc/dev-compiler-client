@@ -8,6 +8,7 @@ export type validatorOptionsTypes = {
     onlyNumbers?: boolean
     onlyLetters?: boolean
     onlyLettersAndNumbers?: boolean
+    onlyLettersAndSpaces?: boolean
     onlyLettersAndNumbersAndSpaces?: boolean
     onlyLettersAndNumbersAndSpecialCharacters?: boolean
 }

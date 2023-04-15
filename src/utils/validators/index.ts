@@ -3,6 +3,23 @@ import { validateInput } from "./validator";
 
 export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: SetSignupData) => {
     let isValid = true;
+    const updatedSignupData: SignupDataTypes = { ...signupData };
+    
+    const isValidName = validateInput(
+        signupData.name.value,
+        {
+            required: true,
+            minLength: 4,
+            maxLength: 12,
+            onlyLettersAndSpaces: true
+        }
+    );
+    
+    if (typeof isValidName === "string" && isValidName.length > 0) {
+        updatedSignupData.name = { value: signupData.name.value, error: isValidName };
+        isValid = false;
+    }
+
     const isValidUsername = validateInput(
         signupData.username.value,
         {
@@ -12,7 +29,6 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
             onlyLettersAndNumbers: true
         }
     );
-    const updatedSignupData: SignupDataTypes = { ...signupData };
     if (typeof isValidUsername === "string" && isValidUsername.length > 0) {
         updatedSignupData.username = { value: signupData.username.value, error: isValidUsername };
         isValid = false;
@@ -27,7 +43,7 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
     if (typeof isValidEmail === "string" && isValidEmail.length > 0) {
         updatedSignupData.email = { value: signupData.email.value, error: isValidEmail };
         isValid = false;
-    };
+    }
     const isValidMobile = validateInput(
         signupData.mobile.value,
         {
@@ -40,7 +56,7 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
     if (typeof isValidMobile === "string" && isValidMobile.length > 0) {
         updatedSignupData.mobile = { value: signupData.mobile.value, error: isValidMobile };
         isValid = false;
-    };
+    }
     const isValidPassword = validateInput(
         signupData.password.value,
         {
