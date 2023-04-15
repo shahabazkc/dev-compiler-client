@@ -42,7 +42,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         else {
           isAllowedRoute = false;
         }
-      };
+      }
 
       if (!isAllowedRoute) {
         const path = checkRoute(router.pathname).redirect;

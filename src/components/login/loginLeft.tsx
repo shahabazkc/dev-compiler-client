@@ -35,7 +35,7 @@ export default function LoginLeft() {
 
     if (isValid) {
 
-      let payload = {
+      const payload = {
         "username": loginData.username.value,
         "password": loginData.password.value
       };
