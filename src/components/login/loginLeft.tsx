@@ -19,7 +19,7 @@ export default function LoginLeft() {
             </div>
             <div className="form__input">
               <label className="label">Password</label>
-              <TextField size="small" label="Enter your password" variant="outlined" />
+              <TextField type="password" size="small" label="Enter your password" variant="outlined" />
             </div>
             <div className="primary-text login_signup-primary-text">
               <Link href={'/'}>Forgot Password?</Link>
