@@ -60,7 +60,7 @@ export const validateInput = (value: validatorInputTypes, options: validatorOpti
     }
 
     // Check for only letters, numbers, and special characters
-    if (onlyLettersAndNumbersAndSpecialCharacters && !/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/.test(value)) {
+    if (onlyLettersAndNumbersAndSpecialCharacters && !RegExp(/^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+$/).test(value)) {
         return "This field must contain only letters, numbers, and special characters.";
     }
 

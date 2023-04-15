@@ -27,7 +27,7 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
     if (typeof isValidEmail === "string" && isValidEmail.length > 0) {
         updatedSignupData.email = { value: signupData.email.value, error: isValidEmail };
         isValid = false;
-    };
+    }
     const isValidMobile = validateInput(
         signupData.mobile.value,
         {
@@ -40,7 +40,7 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
     if (typeof isValidMobile === "string" && isValidMobile.length > 0) {
         updatedSignupData.mobile = { value: signupData.mobile.value, error: isValidMobile };
         isValid = false;
-    };
+    }
     const isValidPassword = validateInput(
         signupData.password.value,
         {

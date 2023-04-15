@@ -62,7 +62,7 @@ export default function LoginLeft() {
               <Button onClick={(e) => submitHandler(e)} className={authStyles.button} variant="contained">Sign In</Button>
             </div>
             <div className="signin_signup_text">
-              <p>Don't have an account?<Link href={'/signup'}> <span className="primary-text login_signup-primary-text">Signup</span></Link>
+              <p>Don&apos;t have an account ?<Link href={'/signup'}> <span className="primary-text login_signup-primary-text">Signup</span></Link>
               </p>
             </div>
           </div>
