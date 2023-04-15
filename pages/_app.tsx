@@ -1,7 +1,7 @@
 
 import React from 'react'
 import Layout from '@/components/layout'
-import '../src/styles/globals.css';
+import '../src/styles/globals.scss';
 import { AppPropsWithLayout } from '@/types/NextPageWithLayout';
 
 

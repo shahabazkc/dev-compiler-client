@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+
+
+.auth-component {
+    display: flex;
+}
+
+body {
+    font-family: 'Imprima', sans-serif;
+}
+
+.form__input {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__input label {
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #4E4E4E;
+    font-size: 12px;
+}
+
+.signin_signup_text {
+    color: $label-color;
+    font-size: 13px;
+    line-height: 10px;
+}
+
+.primary-text{
+    color: $button-color;
+}
+
+.login_signup-primary-text{
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
