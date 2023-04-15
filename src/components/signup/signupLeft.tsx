@@ -3,7 +3,7 @@ import { TextField, Button } from "@mui/material";
 import signupStyles from "../../styles/signup.module.scss";
 import Link from "next/link";
 import React from "react";
-import { validateSignupForm } from "@/utils/validators/signup";
+import { validateSignupForm } from "@/utils/validators";
 import { SignupDataTypes } from '../../types/customTypes';
 
 export const SignupLeft = () => {
@@ -37,7 +37,7 @@ export const SignupLeft = () => {
         const isValid = validateSignupForm(signupData, setSignupData);
 
         if (isValid) {
-            console.log("signupData", signupData);
+            console.log("now call the api: signupData", signupData);
         }
 
     };

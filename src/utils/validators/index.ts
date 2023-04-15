@@ -1,9 +1,5 @@
-import { SignupDataTypes } from "@/types/customTypes";
-import { validateInput } from "../validator";
-
-interface SetSignupData {
-    (value: React.SetStateAction<SignupDataTypes>): void;
-}
+import { LoginDataTypes, SetLoginData, SetSignupData, SignupDataTypes } from "@/types/customTypes";
+import { validateInput } from "./validator";
 
 export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: SetSignupData) => {
     let isValid = true;
@@ -60,6 +56,54 @@ export const validateSignupForm = (signupData: SignupDataTypes, setSignupData: S
     }
 
     setSignupData(updatedSignupData);
+
+    return isValid;
+};
+
+export const validateLoginForm = (loginData: LoginDataTypes, setLoginData: SetLoginData) => {
+    let isValid = true;
+    const updatedLoginData: LoginDataTypes = { ...loginData };
+
+    const isValidUsername = validateInput(
+        loginData.username.value,
+        {
+            required: true,
+            minLength: 4,
+            maxLength: 12,
+            onlyLettersAndNumbers: true
+        }
+    );
+
+    if (typeof isValidUsername === "string" && isValidUsername.length > 0) {
+        const isValidEmail = validateInput(
+            loginData.username.value,
+            {
+                required: true,
+                isEmail: true,
+            }
+        );
+        if (typeof isValidEmail === "string" && isValidEmail.length > 0) {
+            updatedLoginData.username = { value: loginData.username.value, error: isValidUsername };
+            isValid = false;
+        }
+    }
+
+    const isValidPassword = validateInput(
+        loginData.password.value,
+        {
+            required: true,
+            minLength: 6,
+            maxLength: 16,
+            onlyLettersAndNumbersAndSpecialCharacters: true
+        }
+    );
+
+    if (typeof isValidPassword === "string" && isValidPassword.length > 0) {
+        updatedLoginData.password = { value: loginData.password.value, error: isValidPassword };
+        isValid = false;
+    }
+
+    setLoginData(updatedLoginData);
 
     return isValid;
 }
