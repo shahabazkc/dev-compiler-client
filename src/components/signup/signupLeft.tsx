@@ -8,6 +8,10 @@ import { SignupDataTypes } from '../../types/customTypes';
 
 export const SignupLeft = () => {
     const [signupData, setSignupData] = React.useState<SignupDataTypes>({
+        name: {
+            value: "",
+            error: ""
+        },
         username: {
             value: "",
             error: ""
@@ -52,6 +56,11 @@ export const SignupLeft = () => {
                     <p className={signupStyles.signupContentText}>Hey, Whatsupp! Let’s get started devs</p>
 
                     <div className="login-form">
+                        <div className="form__input">
+                            <label className="label">Name</label>
+                            {signupData.name.error?.length > 0 && <p className={errorTextClass}>{signupData.name.error}</p>}
+                            <TextField name="name" error={signupData.name.error?.length > 0} type="text" value={signupData.name.value} onChange={changeHandler} size="small" label="Enter your name" variant="outlined" />
+                        </div>
                         <div className="form__input">
                             <label className="label">Username</label>
                             {signupData.username.error?.length > 0 && <p className={errorTextClass}>{signupData.username.error}</p>}

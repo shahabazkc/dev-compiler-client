@@ -1,4 +1,8 @@
 export type SignupDataTypes = {
+    name: {
+        value: string
+        error: string
+    }
     username: {
         value: string
         error: string
