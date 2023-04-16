@@ -5,7 +5,7 @@
 /.pnp
 .pnp.js
 .env
-package.lock.josn
+package-lock.json
 yarn.lock
 
 # testing
@@ -36,3 +36,4 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+package-lock.json

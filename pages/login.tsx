@@ -6,11 +6,15 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import { signInWithGithub } from "@/api";
 import { useRouter } from "next/router";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/redux/store";
+import { signInWithGithubAsync } from "@/redux/api";
 export default function Login() {
 
   const [isLoading, setLoading] = React.useState(true);
 
-  const router = useRouter()
+  const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
 
   useEffect(() => {
     if (router.query) {
@@ -18,24 +22,14 @@ export default function Login() {
         const { code } = router.query;
         const manageGihubAccessToken = async (code: string) => {
           try {
-            const { data } = await signInWithGithub(code as string);
+            const data = await dispatch(signInWithGithubAsync(code)).unwrap();
             if (data.status) {
-              toast.success('User logged in successfully',
-                {
-                  position: "top-center",
-                  autoClose: 500,
-                  hideProgressBar: false,
-                  closeOnClick: true,
-                  pauseOnHover: true,
-                  draggable: true,
-                }
-              );
               window.location.replace("/");
             }
           } catch (error) {
             const err = error as AxiosError<{ message: string }>;
-            toast.error(err.response?.data?.message || "Something went wrong");
             window.location.replace("/login");
+            toast.error(err.response?.data?.message || "Something went wrong");
           }
 
         }
@@ -45,6 +39,10 @@ export default function Login() {
         setLoading(false);
       }
     } else {
+      setLoading(false);
+    }
+
+    return () => {
       setLoading(false);
     }
   }, []);
