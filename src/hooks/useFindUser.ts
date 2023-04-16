@@ -19,7 +19,7 @@ export default function useFindUser() {
             setTimeout(() => {
                 setLoading(false);
                 setUser(userData);
-            }, 400)
+            }, 300)
         }
         findUser();
     }, []);

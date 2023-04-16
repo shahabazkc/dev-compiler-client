@@ -1,7 +1,7 @@
 import React from "react";
 import authStyles from "../../styles/auth.module.scss";
 import loginStyles from "../../styles/login.module.scss";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Avatar } from "@mui/material";
 import Link from "next/link";
 import { LoginDataTypes } from "@/types/customTypes";
 import { validateLoginForm } from "@/utils/validators";
@@ -9,6 +9,10 @@ import { toast } from "react-toastify";
 import { useDispatch } from 'react-redux';
 import { loginUserAsync } from "@/redux/api";
 import { AppDispatch } from "@/redux/store";
+import githubIcon from "../../assets/images/github.png";
+import googleIcon from "../../assets/images/google.png";
+import { getUrlWithParams } from "@/utils/util";
+
 export default function LoginLeft() {
 
   const [loginData, setLoginData] = React.useState<LoginDataTypes>({
@@ -21,6 +25,7 @@ export default function LoginLeft() {
       value: ""
     }
   });
+
 
   const dispatch = useDispatch<AppDispatch>();
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -70,6 +75,19 @@ export default function LoginLeft() {
     }
   };
 
+  const githubSignInAction = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const CLIENT_ID = process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID as string;
+    const url = getUrlWithParams('https://github.com/login/oauth/authorize', {
+      "client_id": CLIENT_ID,
+      "redirect_uri": "http://localhost:3000/login?auth=github/callback",
+      "scope": "repo%20user"
+    });
+    window.location.assign(url);
+  }
+
+  const googleSignInAction = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  }
+
   const errorTextClass = "text-red-500 font-medium text-sm";
 
   return (
@@ -95,6 +113,12 @@ export default function LoginLeft() {
             </div>
             <div className={authStyles.actionButton}>
               <Button onClick={(e) => submitHandler(e)} className={authStyles.button} variant="contained">Sign In</Button>
+            </div>
+            <div className={authStyles.actionButton}>
+              <Button onClick={(e) => githubSignInAction(e)} startIcon={<Avatar style={{ height: "30px", width: "30px" }} src={githubIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign In with Gihub</Button>
+            </div>
+            <div className={authStyles.actionButton}>
+              <Button onClick={(e) => googleSignInAction(e)} startIcon={<Avatar style={{ height: "28px", width: "28px" }} src={googleIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign In with Google</Button>
             </div>
             <div className="signin_signup_text">
               <p>Don&apos;t have an account ?<Link href={'/signup'}> <span className="primary-text login_signup-primary-text">Signup</span></Link>
