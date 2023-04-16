@@ -3,6 +3,7 @@ import {
   loginUserForm,
   logoutUser,
   signInWithGithub,
+  signInWithGoogle,
   verifyAuth,
 } from '@/api';
 import { createAsyncThunk } from '@reduxjs/toolkit';
@@ -62,6 +63,19 @@ export const signInWithGithubAsync = createAsyncThunk(
   async (code: string) => {
     try {
       const { data } = await signInWithGithub(code);
+      return data;
+    } catch (err) {
+      const error = err as AxiosError;
+      throw error?.response?.data;
+    }
+  }
+);
+
+export const signInWithGoogleAsync = createAsyncThunk(
+  'user/google-signin',
+  async (code: string) => {
+    try {
+      const { data } = await signInWithGoogle(code);
       return data;
     } catch (err) {
       const error = err as AxiosError;

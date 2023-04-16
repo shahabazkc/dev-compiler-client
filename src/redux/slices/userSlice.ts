@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { loginUserAsync, logoutUserAsync, verifyAuthAsync } from '../api';
+import {
+  loginUserAsync,
+  logoutUserAsync,
+  signInWithGithubAsync,
+  signInWithGoogleAsync,
+  verifyAuthAsync,
+} from '../api';
 
 export interface UserDataState {
   loggedIn: boolean;
@@ -43,6 +49,22 @@ export const userSlice = createSlice({
         state.userData = null;
       })
       .addCase(logoutUserAsync.rejected, (state) => {
+        state.loggedIn = false;
+        state.userData = null;
+      })
+      .addCase(signInWithGithubAsync.fulfilled, (state, action) => {
+        state.loggedIn = true;
+        state.userData = action.payload?.data;
+      })
+      .addCase(signInWithGithubAsync.rejected, (state) => {
+        state.loggedIn = false;
+        state.userData = null;
+      })
+      .addCase(signInWithGoogleAsync.fulfilled, (state, action) => {
+        state.loggedIn = true;
+        state.userData = action.payload?.data;
+      })
+      .addCase(signInWithGoogleAsync.rejected, (state) => {
         state.loggedIn = false;
         state.userData = null;
       });
