@@ -30,11 +30,18 @@
     font-size: 16px;
     line-height: 19px;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 7px;
 }
 
 .button{
     background: $button-color !important; ;
     color: #FFFFFF;
     width:100%;
+}
+
+
+.oAuthButton{
+    background-color: #FFFFFF !important;
+    color: #000 !important;
+    width: 100%;
 }

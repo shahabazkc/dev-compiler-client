@@ -8,7 +8,14 @@
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install",
+    "pre-commit": "lint-staged",
     "prettier": "prettier --write ."
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "./node_modules/.bin/eslint --fix"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -25,6 +32,7 @@
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5",
     "react-toastify": "^9.1.2",
+    "sharp": "^0.32.0",
     "typescript": "5.0.4"
   },
   "devDependencies": {
@@ -36,6 +44,7 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "sass": "^1.62.0",

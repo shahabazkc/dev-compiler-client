@@ -1,5 +1,5 @@
 import authStyles from "../../styles/auth.module.scss";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Avatar } from "@mui/material";
 import signupStyles from "../../styles/signup.module.scss";
 import Link from "next/link";
 import React from "react";
@@ -10,6 +10,10 @@ import { useRouter } from "next/router";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from 'react-redux';
 import { userSignupAsync } from "@/redux/api";
+import githubIcon from "../../assets/images/github.png";
+import googleIcon from "../../assets/images/google.png";
+import { githubSignInAction } from "@/utils/github";
+import { googleSignInAction } from "@/utils/google";
 
 export const SignupLeft = () => {
     const router = useRouter();
@@ -114,6 +118,12 @@ export const SignupLeft = () => {
 
                         <div className={authStyles.actionButton}>
                             <Button onClick={(e) => submitHandler(e)} className={authStyles.button} variant="contained">Sign Up</Button>
+                        </div>
+                        <div className={authStyles.actionButton}>
+                            <Button onClick={(e) => githubSignInAction(e)} startIcon={<Avatar style={{ height: "30px", width: "30px" }} src={githubIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign Up with Gihub</Button>
+                        </div>
+                        <div className={authStyles.actionButton}>
+                            <Button onClick={(e) => googleSignInAction(e)} startIcon={<Avatar style={{ height: "28px", width: "28px" }} src={googleIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign Up with Google</Button>
                         </div>
                         <div className="signin_signup_text">
                             <p>Already have an account?<Link href={'/login'}> <span className="primary-text login_signup-primary-text">Signin</span></Link>
