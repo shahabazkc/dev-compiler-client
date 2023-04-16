@@ -8,7 +8,7 @@ import { signInWithGithub } from "@/api";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
-import { signInWithGithubAsync } from "@/redux/api";
+import { signInWithGithubAsync, signInWithGoogleAsync } from "@/redux/api";
 export default function Login() {
 
   const [isLoading, setLoading] = React.useState(true);
@@ -34,6 +34,23 @@ export default function Login() {
 
         }
         manageGihubAccessToken(code);
+      }
+      else if(router.query.auth=="google/callback" && router.query.code && typeof router.query.code === "string"){
+        const { code } = router.query;
+        const manageGoogleAccessToken = async (code: string) => {
+          try {
+            const data = await dispatch(signInWithGoogleAsync(code)).unwrap();
+            if (data.status) {
+              window.location.replace("/");
+            }
+          } catch (error) {
+            const err = error as AxiosError<{ message: string }>;
+            window.location.replace("/login");
+            toast.error(err.response?.data?.message || "Something went wrong");
+          }
+
+        }
+        manageGoogleAccessToken(code);
       }
       else {
         setLoading(false);
