@@ -1,10 +1,12 @@
 $primary-color: #000000;
-$header-color: #000000;
+$secondary-color: #fff;
+$header-primary-color: #000000;
+$header-secondary-color: #fff;
 $button-color: #7F57DB;
 $label-color: #4E4E4E;
 
 :export {
   primaryColor: $primary-color;
-  headerColor: $header-color;
   buttonColor: $button-color;
+  secondaryColor:$secondary-color;
 }

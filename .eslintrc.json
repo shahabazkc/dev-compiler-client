@@ -17,6 +17,14 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "no-useless-escape": "off",
-    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }]
+    "no-unused-vars": [1, { "args": "after-used", "argsIgnorePattern": "^_" }],
+    "react/no-unknown-property": [
+      2,
+      {
+        "ignore": [
+          "jsx"
+        ]
+      }
+    ]
   }
 }

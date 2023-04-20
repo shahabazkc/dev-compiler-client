@@ -14,6 +14,7 @@ export interface UserDataState {
     username: string;
     email: string;
     mobile: string;
+    avatar: string;
   } | null;
 }
 

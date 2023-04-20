@@ -5,12 +5,14 @@ import { useRouter } from "next/router";
 import { ToastContainer } from "react-toastify";
 import useFindUser from "@/hooks/useFindUser";
 import Loader from "../loader";
+import usePages from "@/hooks/usePages";
 
 export default function Layout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const [isMounted, setIsMounted] = React.useState(false);
   const [allowRoute, setAllowRoute] = React.useState(false);
   const [isAuth, setAuth] = React.useState<boolean | null>(null);
+  usePages();
   const { user, isLoading } = useFindUser();
 
   useEffect(() => {
