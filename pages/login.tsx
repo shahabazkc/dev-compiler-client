@@ -4,7 +4,6 @@ import LoginLeft from "@/components/login/loginLeft";
 import Loader from "@/components/loader";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
-import { signInWithGithub } from "@/api";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
