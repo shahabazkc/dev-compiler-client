@@ -1,4 +1,3 @@
-import usePages from '@/hooks/usePages';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 type ThemeType = 'dark' | 'light' | null;

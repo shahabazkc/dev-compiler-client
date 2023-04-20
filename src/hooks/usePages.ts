@@ -1,4 +1,5 @@
 import { PagesDataState, changePageState } from '@/redux/slices/pagesSlice';
+import { AppDispatch } from '@/redux/store';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,7 +11,7 @@ export default function usePages() {
     page: null,
   });
 
-  const dispatch = useDispatch<any>();
+  const dispatch = useDispatch<AppDispatch>();
 
   const router = useRouter();
 

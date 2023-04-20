@@ -27,7 +27,7 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
 
     function handleIconClick() {
         setIsDropdownOpen(!isDropdownOpen);
-    };
+    }
 
     const handleLogout = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
@@ -43,7 +43,8 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
     }
     return (
         <div className="top_header_container">
-            <style global jsx>{
+            {/* react/no-unknown-property */}
+            <style jsx={true}>{
                 `
                         .top_header_container {
                              position: absolute;
