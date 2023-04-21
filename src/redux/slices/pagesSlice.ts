@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type ThemeType = 'dark' | 'light' | null;
+type ThemeType = 'dark' | 'light' | 'system' | null;
 
 export interface PagesDataState {
   header: number | null;
@@ -10,7 +10,7 @@ export interface PagesDataState {
 
 const initialState: PagesDataState = {
   header: 0,
-  theme: 'dark',
+  theme: 'system',
   page: '/',
 };
 

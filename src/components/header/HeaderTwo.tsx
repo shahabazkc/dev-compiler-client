@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { AccountCircleRounded, ArrowDropDown, ArrowDropUp, Search } from "@mui/icons-material";
+import { ThemeSwitcher } from "../theme/themeChanger";
 
 export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) => {
     const dispatch = useDispatch<AppDispatch>()
@@ -83,24 +84,21 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                 </div>
                 <div className="header_search_container">
                     <TextField
-                        style={{
-                            color: "#fff"
-                        }}
                         type="text"
                         variant="outlined"
                         size="small"
-                        color="primary"
                         sx={{
                             fieldset: { borderColor: "#fff" }
                         }}
                         InputProps={{
-                            style: {
-                                color: '#fff',
-                                borderColor: 'white'
-                            },
+                            // style: {
+                            //     color: '#fff',
+                            //     borderColor: 'white'
+                            // },
                             startAdornment: (
                                 <InputAdornment position="start">
-                                    <Search style={{ color: "#fff" }} />
+                                    {/* <Search style={{ color: "#fff" }} /> */}
+                                    <Search />
                                 </InputAdornment>
                             ),
                         }}
@@ -109,6 +107,7 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                         placeholder="Search"
                     />
                 </div>
+               <ThemeSwitcher/>
                 <div className="header_account_container">
                     <div className="header_account_section" onClick={handleIconClick}>
                         {
@@ -118,7 +117,8 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                         {isDropdownOpen ? <ArrowDropDown /> : <ArrowDropUp />}
                     </div>
                     {isDropdownOpen && (
-                        <div className="header_account_dropdown" style={{ position: 'absolute', backgroundColor: "black", color: "white" }}>
+                        // <div className="header_account_dropdown" style={{ position: 'absolute', backgroundColor: "black", color: "white" }}>
+                        <div className="header_account_dropdown">
                             {/* Dropdown content goes here */}
                             <Button onClick={(e) => handleLogout(e)}>Logout</Button>
                         </div>

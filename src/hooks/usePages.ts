@@ -17,15 +17,16 @@ export default function usePages() {
 
   useEffect(() => {
     const pageData = { ...pages };
-    switch (router.pathname) {
-      case '/login' || '/register' || 'signup':
-        pageData.header = 1;
-        break;
-      default:
-        pageData.header = 2;
-        break;
+
+    const header1Routes = ['/login', '/register', '/signup'];
+
+    if (header1Routes.includes(router.pathname)) {
+      pageData.header = 1;
+    } else {
+      pageData.header = 2;
     }
-    pageData.theme = 'dark';
+
+    pageData.theme = 'system';
     pageData.page = router.pathname;
     setPages({ ...pageData });
     dispatch(changePageState(pageData));

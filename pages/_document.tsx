@@ -14,7 +14,7 @@ class MyDocument extends Document {
           />
           {/* <script src="https://accounts.google.com/gsi/client" async defer></script> */}
         </Head>
-        <body>
+        <body className='bg-white text-black dark:bg-black dark:text-white'>
           <Main />
           <NextScript />
         </body>
