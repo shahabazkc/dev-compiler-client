@@ -83,20 +83,20 @@ export default function LoginLeft() {
       <div className={authStyles.authLeftContent}>
         <div className="login-content">
           <h1 className={loginStyles.contentTitle}><span>Welcome Back !</span></h1>
-          <p className={loginStyles.loginContentText}>Welcome back! Please enter your details</p>
+          <p className={`${loginStyles.loginContentText} text-zinc-600`}>Welcome back! Please enter your details</p>
 
           <div className="login-form">
-            <div className="form__input">
+            <div className="form__input text-zinc-600">
               <label className="label">Username/email</label>
               {loginData.username.error?.length > 0 && <p className={errorTextClass}>{loginData.username.error}</p>}
               <TextField name="username" error={loginData?.username.error?.length > 0} onChange={changeHandler} value={loginData.username.value} type="text" size="small" label="Enter your email/username" variant="outlined" />
             </div>
-            <div className="form__input">
+            <div className="form__input text-zinc-600">
               <label className="label">Password</label>
               {loginData.password.error?.length > 0 && <p className={errorTextClass}>{loginData.password.error}</p>}
               <TextField name="password" error={loginData?.password?.error?.length > 0} onChange={changeHandler} value={loginData.password.value} type="password" size="small" label="Enter your password" variant="outlined" />
             </div>
-            <div className="">
+            <div className="form__label">
               <Link  className="text-purple-800 font-normal text-sm text-right" href={'/'}>Forgot Password?</Link>
             </div>
             <div className={`${authStyles.actionButton}`}>
