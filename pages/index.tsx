@@ -4,7 +4,7 @@ import React from "react"
 const Page: NextPage = () => {
   return (
     <>
-      <div className="homepage_container">
+      <div className={`homepage_container`}>
       </div>
     </>
   )

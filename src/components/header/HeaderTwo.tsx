@@ -6,13 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { AccountCircleRounded, ArrowDropDown, ArrowDropUp, Search } from "@mui/icons-material";
 import { ThemeSwitcher } from "../theme/themeChanger";
+import headerStyles from './header.module.scss';
+import usePages from "@/hooks/usePages";
 
-export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) => {
+export const HeaderTwo = () => {
     const dispatch = useDispatch<AppDispatch>()
     const { user: { userData } } = useSelector((state: RootState) => state);
     const [search, setSearch] = useState<string>('');
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const { theme, themeBaseColor } = usePages();
     // Close the dropdown when the user clicks outside of it
     useEffect(() => {
         function handleClickOutside(event: any) {
@@ -33,17 +35,15 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
     const handleLogout = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault()
         try {
-            const data = await dispatch(logoutUserAsync()).unwrap();
-            if (data.status) {
-                window.location.replace("/login");
-            }
+            dispatch(logoutUserAsync());
+            window.location.replace("/login");
         } catch (error: any) {
             console.log(error);
             toast.error(error.message || "Something went wrong");
         }
     }
     return (
-        <div className="top_header_container">
+        <div className={`${headerStyles.Header_two} top_header_container`}>
             {/* react/no-unknown-property */}
             <style jsx={true}>{
                 `
@@ -58,7 +58,6 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                              font-weight: 400;
                              font-size: 16px;
                              line-height: 19px;
-                             color: ${getHeaderColor()};
                             }
                             .top_header_content{
                                 width: 100%;
@@ -88,17 +87,15 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                         variant="outlined"
                         size="small"
                         sx={{
-                            fieldset: { borderColor: "#fff" }
+                            fieldset: { borderColor: `${themeBaseColor.text}` }
                         }}
                         InputProps={{
-                            // style: {
-                            //     color: '#fff',
-                            //     borderColor: 'white'
-                            // },
+                            style: {
+                                color: themeBaseColor.text,
+                            },
                             startAdornment: (
                                 <InputAdornment position="start">
-                                    {/* <Search style={{ color: "#fff" }} /> */}
-                                    <Search />
+                                    <Search style={{ color: themeBaseColor.text }} />
                                 </InputAdornment>
                             ),
                         }}
@@ -107,7 +104,7 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                         placeholder="Search"
                     />
                 </div>
-               <ThemeSwitcher/>
+                <ThemeSwitcher />
                 <div className="header_account_container">
                     <div className="header_account_section" onClick={handleIconClick}>
                         {
@@ -118,9 +115,9 @@ export const HeaderTwo = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                     </div>
                     {isDropdownOpen && (
                         // <div className="header_account_dropdown" style={{ position: 'absolute', backgroundColor: "black", color: "white" }}>
-                        <div className="header_account_dropdown">
+                        <div className={`${headerStyles.HeaderAccountDropdown} ${headerStyles[theme ?? 'light']}`}>
                             {/* Dropdown content goes here */}
-                            <Button onClick={(e) => handleLogout(e)}>Logout</Button>
+                            <button onClick={(e) => handleLogout(e)}>Logout</button>
                         </div>
                     )}
                 </div>

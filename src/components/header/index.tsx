@@ -5,27 +5,19 @@ import { RootState } from "@/redux/store";
 
 import { HeaderOne } from "./HeaderOne";
 import { HeaderTwo } from "./HeaderTwo";
+import { useRouter } from "next/router";
 
 export default function Header() {
     const { pages: { header } } = useSelector((state: RootState) => state);
-    const getHeaderColor = () => {
-        // if (header == 1) {
-        //     return '#000000'
-        // }
-        // else {
-        //     return '#fff'
-        // }
-        return ''
-    };
 
     return (
-        <div>
+        <>
             {
-                header == 1 && <HeaderOne getHeaderColor={getHeaderColor} />
+                header == 1 && <HeaderOne />
             }
             {
-                header == 2 && <HeaderTwo getHeaderColor={getHeaderColor} />
+                header == 2 && <HeaderTwo />
             }
-        </div >
+        </>
     )
 }

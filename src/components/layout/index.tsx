@@ -12,7 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [isMounted, setIsMounted] = React.useState(false);
   const [allowRoute, setAllowRoute] = React.useState(false);
   const [isAuth, setAuth] = React.useState<boolean | null>(null);
-  usePages();
+  const { } = usePages();
   const { user, isLoading } = useFindUser();
 
   useEffect(() => {
@@ -58,8 +58,12 @@ export default function Layout({ children }: { children: ReactNode }) {
     }
   }, [router.pathname, isAuth]);
 
+
+  const nonThemedRoutes = ["/login", "/signup", "/forgot-password", "/reset-password", "/404", "/500"]
+  const { theme } = usePages();
+  const isThemedRoute = !(nonThemedRoutes.includes(router.pathname));
   return (
-    <div>
+    <div className={`${isThemedRoute ? theme+'_layout' : 'non_theme_layout'} layout_container`}>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -72,11 +76,10 @@ export default function Layout({ children }: { children: ReactNode }) {
         pauseOnHover
         theme="light"
       />
-
+      <Header />
       {
         (isMounted && allowRoute && !isLoading) ? (
           <>
-            <Header />
             {children}
           </>
         ) :

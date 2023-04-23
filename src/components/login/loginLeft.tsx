@@ -1,6 +1,6 @@
 import React from "react";
 import authStyles from "../../styles/auth.module.scss";
-import loginStyles from "../../styles/login.module.scss";
+import loginStyles from "./login.module.scss";
 import { TextField, Button, Avatar } from "@mui/material";
 import Link from "next/link";
 import { LoginDataTypes } from "@/types/customTypes";
@@ -99,7 +99,7 @@ export default function LoginLeft() {
             <div className="primary-text login_signup-primary-text">
               <Link href={'/'}>Forgot Password?</Link>
             </div>
-            <div className={authStyles.actionButton}>
+            <div className={`${authStyles.actionButton}`}>
               <Button onClick={(e) => submitHandler(e)} className={authStyles.button} variant="contained">Sign In</Button>
             </div>
             <div className={authStyles.actionButton}>

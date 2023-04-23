@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+@import './base/reset';
+@import './abstracts/colors';
 
 
-@layer base {
-    body {
-        @apply dark:bg-black dark:text-red-100 bg-gray-50 text-gray-900;
-    }
+.layout_container{
+    min-height: 100vh;
+    height: 100%;
+};
+
+.dark_layout{
+    background-color: $dark-bg;
+    color: $dark-text;
+}
+
+.light_layout{
+    background-color: $light-bg;
+    color: $light-text;
 }
 
 .auth-component {
@@ -37,9 +48,6 @@ body {
     right: 0;
 }
 
-.primary-text {
-    // color: $button-color;
-}
 
 .login_signup-primary-text {
     font-size: 13px;

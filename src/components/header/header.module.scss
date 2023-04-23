@@ -1,0 +1,30 @@
+@import '../../styles/abstracts/_colors';
+
+.Header_one {
+    color: $dark-900;
+}
+
+.Header_two {
+    display: block;
+}
+
+.light {
+    color: $dark-900;
+    background-color: $white;
+}
+
+.dark {
+    background-color: $dark-900;
+    color: $dark-000;
+}
+
+.HeaderAccountDropdown {
+    right: 10px;
+    position: absolute;
+}
+
+.HeaderAccountDropdown button {
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+}
