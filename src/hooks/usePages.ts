@@ -2,13 +2,12 @@ import {
   PagesDataState,
   changeHeader,
   changePage,
-  changePageState,
   changeTheme,
 } from '@/redux/slices/pagesSlice';
 import { AppDispatch, RootState } from '@/redux/store';
 import { getThemeColors } from '@/utils/getThemeColors';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function usePages() {

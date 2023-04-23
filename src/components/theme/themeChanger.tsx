@@ -1,5 +1,4 @@
 import usePages from "@/hooks/usePages";
-import { Button } from "@mui/material"
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from "react-redux";
 import { changeTheme, ThemeType } from '../../redux/slices/pagesSlice'

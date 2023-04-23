@@ -5,7 +5,6 @@ import { RootState } from "@/redux/store";
 
 import { HeaderOne } from "./HeaderOne";
 import { HeaderTwo } from "./HeaderTwo";
-import { useRouter } from "next/router";
 
 export default function Header() {
     const { pages: { header } } = useSelector((state: RootState) => state);

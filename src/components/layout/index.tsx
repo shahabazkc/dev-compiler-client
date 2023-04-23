@@ -12,7 +12,6 @@ export default function Layout({ children }: { children: ReactNode }) {
   const [isMounted, setIsMounted] = React.useState(false);
   const [allowRoute, setAllowRoute] = React.useState(false);
   const [isAuth, setAuth] = React.useState<boolean | null>(null);
-  const { } = usePages();
   const { user, isLoading } = useFindUser();
 
   useEffect(() => {
