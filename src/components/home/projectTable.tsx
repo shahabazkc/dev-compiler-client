@@ -85,8 +85,8 @@ export const ProjectTable = () => {
                     {
                         projectList.map((project, index) => {
                             return (
-                                <div className={`${styles.projectTableItem}`}>
-                                    <div key={index} className={`${styles.homeProjectTableContentBodyItem} ${styles[`homeProjectTableContentBodyItem_${theme}`]}`}>
+                                <div key={index} className={`${styles.projectTableItem}`}>
+                                    <div  className={`${styles.homeProjectTableContentBodyItem} ${styles[`homeProjectTableContentBodyItem_${theme}`]}`}>
                                         <div className={`${styles.homeProjectTableTitle}`}>
                                             <div className={`${styles.homeProjectTableContentBodyItemContentName}`}>
                                                 <img src={project.icon} alt="" /> &nbsp; &nbsp;
