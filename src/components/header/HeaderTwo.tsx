@@ -48,7 +48,6 @@ export const HeaderTwo = () => {
             <style jsx={true}>{
                 `
                         .top_header_container {
-                             position: absolute;
                              padding-left: 3%;
                              width: 100%;
                              padding-top: 15px;

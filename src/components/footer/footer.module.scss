@@ -1,0 +1,28 @@
+@import '../../styles/abstracts/_colors';
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: calc(5% + 60px);
+    height: 70px;
+    text-align: center;
+}
+
+.footer_dark{
+    background-color: $dark-600;
+}
+.footer_light{
+    background-color: $dark-500;
+    color: $dark-000;
+}
+
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1200px;
+}

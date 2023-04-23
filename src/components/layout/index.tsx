@@ -62,29 +62,30 @@ export default function Layout({ children }: { children: ReactNode }) {
   const { theme } = usePages();
   const isThemedRoute = !(nonThemedRoutes.includes(router.pathname));
   return (
-    <div className={`${isThemedRoute ? theme+'_layout' : 'non_theme_layout'} layout_container`}>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      <Header />
-      {
-        (isMounted && allowRoute && !isLoading) ? (
-          <>
-            {children}
-          </>
-        ) :
-          (<Loader show={true} />)
-      }
-
-    </div>
+    <>
+      <div className={`${isThemedRoute ? theme + '_layout' : 'non_theme_layout'} layout_container`}>
+        <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+        <Header />
+        {
+          (isMounted && allowRoute && !isLoading) ? (
+            <>
+              {children}
+            </>
+          ) :
+            (<Loader show={true} />)
+        }
+      </div>
+    </>
   );
 }
