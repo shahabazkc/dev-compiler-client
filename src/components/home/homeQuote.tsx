@@ -8,7 +8,7 @@ export const HomeQuote = () => {
         <div className={`${styles.homeQuoteContainer} ${styles[`homeQuoteContainer_${theme}`]}`}>
             <div className={`${styles.homeQuoteBox}`}>
                 <div className={`${styles.quoteIcon}`}>
-                    &quot;
+                “
                 </div>
                 <div className={`${styles.homeQuoteText}`}>
                     <p>
