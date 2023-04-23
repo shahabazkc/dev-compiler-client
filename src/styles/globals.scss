@@ -6,17 +6,17 @@
 @import './abstracts/colors';
 
 
-.layout_container{
+.layout_container {
     min-height: 100vh;
     height: 100%;
-};
+}
 
-.dark_layout{
+.dark_layout {
     background-color: $dark-bg;
     color: $dark-text;
 }
 
-.light_layout{
+.light_layout {
     background-color: $light-bg;
     color: $light-text;
 }
@@ -58,5 +58,15 @@ body {
 .homepage_container {
     min-height: 100vh;
     height: 100%;
-    // color: $secondary-color
+
+}
+
+.homepage_container .homepage_sections {
+    padding-left: 6%;
+}
+
+@media only screen and (max-width: 768px) {
+    .homepage_container .homepage_sections {
+        padding-left: 2%;
+    }
 }

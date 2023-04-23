@@ -87,30 +87,30 @@ export const SignupLeft = () => {
             <div className={authStyles.authLeftContent}>
                 <div className="signup-content">
                     <h1 className={signupStyles.contentTitle}><span>Signup</span></h1>
-                    <p className={signupStyles.signupContentText}>Hey, Whatsupp! Let’s get started devs</p>
+                    <p className={`${signupStyles.signupContentText} text-zinc-600`}>Hey, Whatsupp! Let’s get started devs</p>
 
                     <div className="login-form">
-                        <div className="form__input">
+                        <div className="form__input text-zinc-600">
                             <label className="label">Name</label>
                             {signupData.name.error?.length > 0 && <p className={errorTextClass}>{signupData.name.error}</p>}
                             <TextField name="name" error={signupData.name.error?.length > 0} type="text" value={signupData.name.value} onChange={changeHandler} size="small" label="Enter your name" variant="outlined" />
                         </div>
-                        <div className="form__input">
+                        <div className="form__input text-zinc-600">
                             <label className="label">Username</label>
                             {signupData.username.error?.length > 0 && <p className={errorTextClass}>{signupData.username.error}</p>}
                             <TextField name="username" error={signupData.username.error?.length > 0} type="text" value={signupData.username.value} onChange={changeHandler} size="small" label="Enter username" variant="outlined" />
                         </div>
-                        <div className="form__input">
+                        <div className="form__input text-zinc-600">
                             <label className="label">Email</label>
                             {signupData.email.error?.length > 0 && <p className={errorTextClass}>{signupData.email.error}</p>}
                             <TextField name="email" error={signupData.email.error?.length > 0} type="email" value={signupData.email.value} onChange={changeHandler} size="small" label="Enter your email" variant="outlined" />
                         </div>
-                        <div className="form__input">
+                        <div className="form__input text-zinc-600">
                             <label className="label">Mobile number</label>
                             {signupData.mobile.error?.length > 0 && <p className={errorTextClass}>{signupData.mobile.error}</p>}
                             <TextField name="mobile" error={signupData.mobile.error?.length > 0} type="text" value={signupData.mobile.value} onChange={changeHandler} size="small" label="Enter your mobile number" variant="outlined" />
                         </div>
-                        <div className="form__input">
+                        <div className="form__input text-zinc-600">
                             <label className="label">Password</label>
                             {signupData.password.error?.length > 0 && <p className={errorTextClass}>{signupData.password.error}</p>}
                             <TextField name="password" error={signupData.password.error?.length > 0} type="password" value={signupData.password.value} onChange={changeHandler} size="small" label="Enter your password" variant="outlined" />
@@ -125,8 +125,8 @@ export const SignupLeft = () => {
                         <div className={authStyles.actionButton}>
                             <Button onClick={(e) => googleSignInAction(e)} startIcon={<Avatar style={{ height: "28px", width: "28px" }} src={googleIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign Up with Google</Button>
                         </div>
-                        <div className="signin_signup_text">
-                            <p>Already have an account?<Link href={'/login'}> <span className="primary-text login_signup-primary-text">Signin</span></Link>
+                        <div className="signin_signup_text text-zinc-600">
+                            <p>Already have an account?<Link href={'/login'}> <span className="text-purple-900 font-bold">Signin</span></Link>
                             </p>
                         </div>
                     </div>
