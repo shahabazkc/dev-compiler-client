@@ -1,12 +1,15 @@
-$primary-color: #000000;
-$secondary-color: #fff;
-$header-primary-color: #000000;
-$header-secondary-color: #fff;
-$button-color: #7F57DB;
-$label-color: #4E4E4E;
+$dark-bg-color: #000;
+$dark-text-color: #fff;
+$light-bg-color: #fff;
+$light-text-color: #000;
+$dark-primary-color: #000;
+$light-primary-color: #fff;
 
 :export {
-  primaryColor: $primary-color;
-  buttonColor: $button-color;
-  secondaryColor:$secondary-color;
+  darkBgColor: $dark-bg-color;
+  darkTextColor: $dark-text-color;
+  lightBgColor: $light-bg-color;
+  lightTextColor: $light-text-color;
+  darkPrimaryColor: $dark-primary-color;
+  lightPrimaryColor: $light-primary-color;
 }

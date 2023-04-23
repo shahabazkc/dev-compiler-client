@@ -1,3 +1,5 @@
+@import './abstracts/colors';
+
 .authRight {
     min-height: 100vh;
 }
@@ -34,15 +36,15 @@
     margin-top: 7px;
 }
 
-.button{
-    background: $button-color !important; ;
-    color: #FFFFFF;
+.actionButton button{
+    background: $white !important;
+    color: $dark-900 !important;
     width:100%;
 }
 
 
 .oAuthButton{
-    background-color: #FFFFFF !important;
-    color: #000 !important;
+    // background-color: #FFFFFF !important;
+    // color: #000 !important;
     width: 100%;
 }

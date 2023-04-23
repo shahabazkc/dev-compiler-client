@@ -69,6 +69,7 @@ export default function Login() {
         :
         (
           <div className="auth-component">
+            
             <LoginLeft />
             <AuthRight />
           </div>

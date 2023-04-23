@@ -1,6 +1,6 @@
 import authStyles from "../../styles/auth.module.scss";
 import { TextField, Button, Avatar } from "@mui/material";
-import signupStyles from "../../styles/signup.module.scss";
+import signupStyles from "./signup.module.scss";
 import Link from "next/link";
 import React from "react";
 import { validateSignupForm } from "@/utils/validators";

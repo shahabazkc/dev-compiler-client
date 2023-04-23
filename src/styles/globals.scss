@@ -2,7 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Imprima&display=swap');
+@import './base/reset';
+@import './abstracts/colors';
 
+
+.layout_container{
+    min-height: 100vh;
+    height: 100%;
+};
+
+.dark_layout{
+    background-color: $dark-bg;
+    color: $dark-text;
+}
+
+.light_layout{
+    background-color: $light-bg;
+    color: $light-text;
+}
 
 .auth-component {
     display: flex;
@@ -20,30 +37,26 @@ body {
 .form__input label {
     margin-top: 10px;
     margin-bottom: 8px;
-    color: #4E4E4E;
+    // color: #4E4E4E;
     font-size: 12px;
 }
 
 .signin_signup_text {
-    color: $label-color;
     font-size: 13px;
     line-height: 10px;
     margin-top: 10px;
     right: 0;
 }
 
-.primary-text{
-    color: $button-color;
-}
 
-.login_signup-primary-text{
+.login_signup-primary-text {
     font-size: 13px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.homepage_container{
+.homepage_container {
     min-height: 100vh;
     height: 100%;
-    color: $secondary-color
+    // color: $secondary-color
 }

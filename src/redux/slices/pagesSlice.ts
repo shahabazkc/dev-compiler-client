@@ -1,25 +1,42 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-type ThemeType = 'dark' | 'light' | null;
+export type ThemeType = 'dark' | 'light' | null;
+
+interface ThemeBaseColors {
+  background: string;
+  text: string;
+}
 
 export interface PagesDataState {
   header: number | null;
   page: string | null;
   theme: ThemeType;
+  themeBaseColor: ThemeBaseColors;
 }
 
 const initialState: PagesDataState = {
   header: 0,
-  theme: 'dark',
+  theme: null,
   page: '/',
+  themeBaseColor: {
+    background: '#fff',
+    text: '#000',
+  },
 };
 
 export const pagesSlice = createSlice({
   name: 'pages',
   initialState: initialState,
   reducers: {
-    changeTheme(state, action: PayloadAction<ThemeType>) {
-      state.theme = action.payload;
+    changeTheme(
+      state,
+      action: PayloadAction<{ theme: ThemeType; themeColors?: ThemeBaseColors }>
+    ) {
+      state.theme = action.payload.theme;
+      localStorage.setItem('theme', action.payload.theme ?? 'light');
+      if (action.payload.themeColors) {
+        state.themeBaseColor = action.payload.themeColors;
+      }
     },
     changeHeader(state, action: PayloadAction<number>) {
       state.header = action.payload;
@@ -31,6 +48,7 @@ export const pagesSlice = createSlice({
       state.header = action.payload.header;
       state.page = action.payload.page;
       state.theme = action.payload.theme;
+      localStorage.setItem('theme', action.payload.theme ?? 'light');
     },
   },
 });

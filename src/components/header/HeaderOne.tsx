@@ -1,8 +1,9 @@
 import React from 'react';
-
-export const HeaderOne = ({ getHeaderColor }: { getHeaderColor: () => string }) => {
+import headerStyles from './header.module.scss';
+import usePages from '@/hooks/usePages';
+export const HeaderOne = () => {
     return (
-        <div>
+        <div className={`${headerStyles.Header_one}`}>
             <style jsx>{
                 `
                         div {
@@ -16,7 +17,6 @@ export const HeaderOne = ({ getHeaderColor }: { getHeaderColor: () => string }) 
                             font-weight: 400;
                             font-size: 16px;
                             line-height: 19px;
-                            color: ${getHeaderColor()};
                         }
                     `
             }
