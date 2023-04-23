@@ -126,7 +126,7 @@ export const SignupLeft = () => {
                             <Button onClick={(e) => googleSignInAction(e)} startIcon={<Avatar style={{ height: "28px", width: "28px" }} src={googleIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign Up with Google</Button>
                         </div>
                         <div className="signin_signup_text">
-                            <p>Already have an account?<Link href={'/login'}> <span className="primary-text login_signup-primary-text">Signin</span></Link>
+                            <p>Already have an account?<Link href={'/login'}> <span className="text-purple-900 font-bold">Signin</span></Link>
                             </p>
                         </div>
                     </div>

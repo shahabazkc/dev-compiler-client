@@ -96,8 +96,8 @@ export default function LoginLeft() {
               {loginData.password.error?.length > 0 && <p className={errorTextClass}>{loginData.password.error}</p>}
               <TextField name="password" error={loginData?.password?.error?.length > 0} onChange={changeHandler} value={loginData.password.value} type="password" size="small" label="Enter your password" variant="outlined" />
             </div>
-            <div className="primary-text login_signup-primary-text">
-              <Link href={'/'}>Forgot Password?</Link>
+            <div className="">
+              <Link  className="text-purple-800 font-normal text-sm text-right" href={'/'}>Forgot Password?</Link>
             </div>
             <div className={`${authStyles.actionButton}`}>
               <Button onClick={(e) => submitHandler(e)} className={authStyles.button} variant="contained">Sign In</Button>
@@ -109,7 +109,7 @@ export default function LoginLeft() {
               <Button onClick={(e) => googleSignInAction(e)} startIcon={<Avatar style={{ height: "28px", width: "28px" }} src={googleIcon.src} />} className={authStyles.oAuthButton} variant="contained" > Sign In with Google</Button>
             </div>
             <div className="signin_signup_text">
-              <p>Don&apos;t have an account ?<Link href={'/signup'}> <span className="primary-text login_signup-primary-text">Signup</span></Link>
+              <p>Don&apos;t have an account ?<Link href={'/signup'}> <span className="text-purple-900 font-bold">Signup</span></Link>
               </p>
             </div>
           </div>
