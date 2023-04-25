@@ -1,9 +1,11 @@
 import { NextPage } from "next";
+import React from 'react'
+
 import ManageSection from "@/components/codeEditor/manageSection";
 import FileDirectorySection from "@/components/codeEditor/fileDirectorySection";
 import WebOutputSection from "@/components/codeEditor/webOutputSection";
 import CodeEditorScreen from "@/components/codeEditor/codeEditor";
-import SplitPane from 'react-split'
+import SplitPane from 'react-split';
 const CodeEditor: NextPage = () => {
     return (
         <>
