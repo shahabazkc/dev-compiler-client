@@ -1,6 +1,5 @@
 import React from 'react';
 import headerStyles from './header.module.scss';
-import usePages from '@/hooks/usePages';
 export const HeaderOne = () => {
     return (
         <div className={`${headerStyles.Header_one}`}>
