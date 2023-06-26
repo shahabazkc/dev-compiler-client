@@ -76,10 +76,10 @@ export default function Layout({ children }: { children: ReactNode }) {
           pauseOnHover
           theme="light"
         />
-        <Header />
         {
           (isMounted && allowRoute && !isLoading) ? (
             <>
+            <Header />
               {children}
             </>
           ) :

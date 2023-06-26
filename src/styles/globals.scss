@@ -6,6 +6,19 @@
 @import './abstracts/colors';
 
 
+.gutter {
+    background-color: $dark-400;
+}
+
+
+.gutter.gutter-vertical {
+    cursor: col-resize;
+}
+
+.gutter.gutter-horizontal {
+    cursor: col-resize;
+}
+
 .layout_container {
     min-height: 100vh;
     height: 100%;
@@ -69,4 +82,23 @@ body {
     .homepage_container .homepage_sections {
         padding-left: 2%;
     }
+}
+
+.code_editor_container {
+    border-top: 3px solid black;
+    display: flex;
+    width: 100%;
+}
+
+.code_editor_container_dark{
+    background-color: #1A1A1A;
+}
+
+.code_editor_container_light{
+    background-color: #ced9d6;
+}
+
+
+.split-pane{
+    width: 95%;
 }
