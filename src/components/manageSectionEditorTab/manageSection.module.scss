@@ -1,0 +1,21 @@
+@import '../../styles/abstracts/colors';
+
+
+.editorManageSection{
+    width: 3%;
+    background-color: $dark-500;
+    padding: 5px;
+}
+
+.editorManageTabs{
+    min-height: calc(100vh - 6rem - 2vw);
+    display: flex;
+    flex-direction: column;
+}
+
+.editorManageTab{
+    padding-left: 0.2rem;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
