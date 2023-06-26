@@ -7,7 +7,7 @@ export const FileListTab = () => {
     const [files,setFiles] = React.useState(Array.from({ length }, (_, index) => index + 1));
 
     const closeTab = (index:number) => {
-        let updFiles = [...files]
+        const updFiles = [...files]
         updFiles.splice(index,1);
         setFiles([...updFiles])
     }
@@ -16,7 +16,7 @@ export const FileListTab = () => {
             <div className={`${styles.tabsContainer}`}>
                 {
                     files.map((el, index) => (
-                        <div className={`${styles.tabs}`}>
+                        <div key={index+1} className={`${styles.tabs}`}>
                             <svg style={{ width: "20px", height: "20px",background: "#fff" }}
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="682.667"

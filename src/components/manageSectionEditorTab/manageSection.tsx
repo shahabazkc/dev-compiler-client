@@ -9,7 +9,7 @@ const ManageSection = () => {
                 {
                     new Array(10).fill(0).map((ele, index) => {
                         return (
-                            <div className={`${styles.editorManageTab}`}>
+                            <div key={(ele + index) ?? index} className={`${styles.editorManageTab}`}>
                                 {
                                     index % 2 == 0 ? <FolderCopyIcon /> : <SearchOutlined />
                                 }
